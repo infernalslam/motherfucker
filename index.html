@@ -1,0 +1,188 @@
+<!doctype html>
+<html ng-app="todoApp">
+	<head>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.min.js"></script>
+		<script src="todo.js"></script>
+		<link rel="stylesheet" href="todo.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
+	</head>
+	<body ng-controller="TodoListController">
+		<!-- <button ng-click='click()'>click to select and get base64</button>
+		<button ng-click="insert()">insert WIFI</button>
+		<button ng-click="raduis()">insert cctv</button>
+		<div ng-show="showRange">
+			<br>
+			raduis cctv
+			<form ng-submit="cctvSubmit()">
+				<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+			</form>
+		</div>
+		<br>
+		<div  id="{{item.id}}" ng-repeat="item in cameraStyle" ng-mouseup="moveObj(item.id)">
+			<p>{{ item.id }}</p>
+			{{ init() }}
+		</div>
+		<div id="{{item1.id}}" ng-repeat="item1 in raduisStyle" ng-mouseup="moveObjraduisStyle(item1.id)">
+			<p ng-click="tranformcctv(item1.id)">{{ item1.id }}</p>
+			{{ initraduisStyle() }}
+			{{ cctvSubmit() }}
+		</div>
+
+		<div ng-show="showImage">
+			<img src="{{ data.b64 }}">
+		</div> -->
+
+
+				<nav class="nav">
+		  <div class="nav-left">
+		    <a class="nav-item is-brand" href="#">
+		      <!-- <img src="http://bulma.io/images/bulma-type.png" alt="Bulma logo"> -->
+		    </a>
+		  </div>
+
+		  <div class="nav-center">
+		    <a class="nav-item" href="#">
+		      <span class="icon">
+		        <i class="fa fa-github"></i>
+		      </span>
+		    </a>
+		    <a class="nav-item" href="#">
+		      <span class="icon">
+		        <i class="fa fa-twitter"></i>
+		      </span>
+		    </a>
+		  </div>
+
+		  <span class="nav-toggle">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		  </span>
+
+		  <div class="nav-right nav-menu">
+		    <span class="nav-item">
+		      <a class="button is-primary" ng-click='click()'>
+		        <span>Import</span>
+		      </a>
+					<a class="button is-primary" ng-click="insert()">
+		        <span>WIFI</span>
+		      </a>
+
+					<!-- <a class="button is-primary" ng-click="raduis(18)">
+		        <span>CCTV 18</span>
+		      </a>
+					<a class="button is-primary" ng-click="raduis(28)">
+						<span>CCTV 28</span>
+					</a>
+					<a class="button is-primary" ng-click="raduis(33.4)">
+						<span>CCTV 33</span>
+					</a>
+					<a class="button is-primary" ng-click="raduis(48)">
+						<span>CCTV 48</span>
+					</a>
+					<a class="button is-primary" ng-click="raduis(70.6)">
+						<span>CCTV 70.6</span>
+					</a>
+					<a class="button is-primary" ng-click="raduis(80)">
+						<span>CCTV 80</span>
+					</a>
+					<a class="button is-primary" ng-click="raduis(150)">
+						<span>CCTV 150</span>
+					</a> -->
+
+		    </span>
+		  </div>
+		</nav>
+
+		<div class="columns">
+			<div class="column">
+					<div id="column_left">
+						type 1  จำนวน : {{countCctv}} <hr> <br>
+						<a class="button is-primary" ng-click="raduis(18)">
+			        <span>CCTV 18</span>
+			      </a>
+						<a class="button is-primary" ng-click="raduis(28)">
+							<span>CCTV 28</span>
+						</a>
+						<a class="button is-primary" ng-click="raduis(33.4)">
+							<span>CCTV 33</span>
+						</a>
+						<a class="button is-primary" ng-click="raduis(48)">
+							<span>CCTV 48</span>
+						</a>
+						<a class="button is-primary" ng-click="raduis(70.6)">
+							<span>CCTV 70.6</span>
+						</a>
+						<a class="button is-primary" ng-click="raduis(80)">
+							<span>CCTV 80</span>
+						</a>
+						<a class="button is-primary" ng-click="raduis(150)">
+							<span>CCTV 150</span>
+						</a>
+						<hr>
+
+						<div ng-show="showRange">
+							<br>
+							raduis cctv {{idCctv}}
+							<form ng-submit="cctvSubmit()">
+								<!-- <input type="number" ng-model="range"> -->
+								<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+								<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
+								<input type="radio"  value="30" ng-model="width"> 30
+							  <input type="radio"  value="60" ng-model="width"> 60
+							  <input type="radio"  value="90" ng-model="width"> 90
+							</form>
+						</div>
+					</div>
+		</div>
+		<div class="column">
+		</div>
+	</div>
+
+
+		<!-- <div id="header">MENU <br>
+			<button ng-click='click()'>import picture</button>
+			<button ng-click="insert()">insert WIFI</button>
+			<button ng-click="raduis()">insert cctv</button>
+		</div> -->
+
+
+
+		<!-- <div id="content">
+			<div id="column_left">
+				<div ng-show="showRange">
+					<br>
+					raduis cctv {{idCctv}}
+					<form ng-submit="cctvSubmit()">
+						<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+						<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
+						<input type="radio"  value="30" ng-model="width"> 30
+					  <input type="radio"  value="60" ng-model="width"> 60
+					  <input type="radio"  value="90" ng-model="width"> 90
+					</form>
+				</div>
+			</div> -->
+
+
+			<div id="column_right">
+				<div  id="{{item.id}}" ng-repeat="item in cameraStyle" ng-mouseup="moveObj(item.id)">
+					<p>{{ item.id }}</p>{{ init() }}
+				</div>
+				<div id="{{item1.id}}" ng-repeat="item1 in raduisStyle" ng-mouseup="moveObjraduisStyle(item1.id)" ng-init="">
+					{{ initraduisStyle() }}
+					<button ng-click="tranformcctv(item1.id)">{{ item1.id }}</button>
+						<button ng-click="delcctv(item1.id)">del</button>
+				</div>
+				<div ng-show="showImage"><img src="{{ data.b64 }}"></div>
+		</div>
+		<div id="footer">FOOTER</div>
+		<div style='word-wrap:break-word'>
+
+
+
+		</body>
+	</html>
