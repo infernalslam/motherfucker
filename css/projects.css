@@ -1,29 +1,3 @@
-/*#container {
-    position: relative;
-    width: 100px;
-    height: 100px;
+.test-image {
+  background-image: url('./img/test.jpg');
 }
-
-.cover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    clip: rect(0 100px 100px 50px);
-}
-
-.pie {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    clip: rect(0 50px 100px 0px);
-}
-
-#part1-wrapper {
-    transform: rotate(0deg);
-}
-
-#part1 {
-    background-color: rgb(255, 99, 99);
-    transform: rotate(60deg);
-}*/

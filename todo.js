@@ -5,7 +5,7 @@ angular.module('todoApp', ['base64'])
     $scope.data = {}
     $scope.showImage = false
     $scope.showCamera = false
-
+    $scope.pagetitle = 'active'
     var fileSelect = document.createElement('input')
     fileSelect.type = 'file'
     if (fileSelect.disabled) {
@@ -133,15 +133,16 @@ angular.module('todoApp', ['base64'])
           css: {
             top: 100,
             left: 300,
+            right: 0,
+            bottom: 0,
+            'border-style': 'dashed',
             position: 'absolute',
             width: '207px',
             height: '150px',
             'background-image': `url('./img/150.png')`,
             'background-repeat': 'repeat-y, repeat-x',
             'transform': 'rotate(0deg)',
-            opacity: '0.6',
-            'border-color': 'red',
-            'border-style': 'dashed'
+            opacity: '0.6'
           }
         }
         $scope.raduisStyle.push(cctvStyle150)
@@ -157,9 +158,7 @@ angular.module('todoApp', ['base64'])
             'background-image': `url('./img/70.6.png')`,
             'background-repeat': 'repeat-y, repeat-x',
             'transform': 'rotate(0deg)',
-            opacity: '0.6',
-            'border-color': 'red',
-            'border-style': 'dashed'
+            opacity: '0.6'
           }
         }
         $scope.raduisStyle.push(cctvStyle70)
@@ -175,9 +174,7 @@ angular.module('todoApp', ['base64'])
             'background-image': `url('./img/80.png')`,
             'background-repeat': 'repeat-y, repeat-x',
             'transform': 'rotate(0deg)',
-            opacity: '0.6',
-            'border-color': 'red',
-            'border-style': 'dashed'
+            opacity: '0.6'
           }
         }
         $scope.raduisStyle.push(cctvStyle80)
@@ -200,7 +197,7 @@ angular.module('todoApp', ['base64'])
         $('#' + item.id).draggable()
         $('#' + item.id).css(item.css)
       })
-      $scope.countCctv = $scope.raduisStyle.length
+      // $scope.countCctv = $scope.raduisStyle.length
     }
     // $scope.range = 0
     // $scope.width = 0
@@ -224,5 +221,20 @@ angular.module('todoApp', ['base64'])
       var index = $scope.raduisStyle.findIndex(item => item.id === id)
       $scope.raduisStyle.splice(index, 1)
       console.log($scope.raduisStyle)
+    }
+    $scope.page = ''
+    $scope.Bullet = function () {
+      console.log('Bullet')
+      $scope.page = 'Bullet'
+      $scope.raduis(150)
+    }
+    $scope.Box = function () {
+      $scope.page = 'Box'
+    }
+    $scope.Dome = function () {
+      $scope.page = 'Dome'
+    }
+    $scope.testLens = function () {
+      $scope.pagetitle = 'modal'
     }
   })

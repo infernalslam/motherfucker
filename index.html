@@ -11,32 +11,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 	</head>
 	<body ng-controller="TodoListController">
-		<!-- <button ng-click='click()'>click to select and get base64</button>
-		<button ng-click="insert()">insert WIFI</button>
-		<button ng-click="raduis()">insert cctv</button>
-		<div ng-show="showRange">
-			<br>
-			raduis cctv
-			<form ng-submit="cctvSubmit()">
-				<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
-			</form>
-		</div>
-		<br>
-		<div  id="{{item.id}}" ng-repeat="item in cameraStyle" ng-mouseup="moveObj(item.id)">
-			<p>{{ item.id }}</p>
-			{{ init() }}
-		</div>
-		<div id="{{item1.id}}" ng-repeat="item1 in raduisStyle" ng-mouseup="moveObjraduisStyle(item1.id)">
-			<p ng-click="tranformcctv(item1.id)">{{ item1.id }}</p>
-			{{ initraduisStyle() }}
-			{{ cctvSubmit() }}
-		</div>
-
-		<div ng-show="showImage">
-			<img src="{{ data.b64 }}">
-		</div> -->
-
-
 				<nav class="nav">
 		  <div class="nav-left">
 		    <a class="nav-item is-brand" href="#">
@@ -72,15 +46,195 @@
 		        <span>WIFI</span>
 		      </a>
 
-					<!-- <a class="button is-primary" ng-click="raduis(18)">
-		        <span>CCTV 18</span>
+					<a class="button is-info" ng-click="Dome()">
+		        <span>Dome</span>
 		      </a>
+					<a class="button is-success" ng-click="Box()">
+						<span>Box</span>
+					</a>
+					<a class="button is-warning" ng-click="Bullet()">
+						<span>Bullet</span>
+					</a>
+					<a class="button is-warning" ng-click="testLens()">
+						<span>TestLen</span>
+					</a>
+		    </span>
+		  </div>
+		</nav>
+
+
+		<div class="columns" ng-show="pagetitle === 'active'">
+		  <div class="column is-three-quarters">
+				<div  style="display: inline-block"id="{{item1.id}}" ng-repeat="item1 in raduisStyle" ng-mouseup="moveObjraduisStyle(item1.id)" ng-init="">
+					{{ initraduisStyle() }}
+					<button ng-click="tranformcctv(item1.id)">{{ item1.id }}</button>
+						<button ng-click="delcctv(item1.id)">del</button>
+				</div>
+		    <img src="{{ data.b64 }}" width="1024" height="768">
+		  </div>
+		  <div class="column">
+				<div ng-show="page==='Bullet'">
+				Bullet<br>
+				<a class="button is-primary" ng-click="raduis(18)">
+					<span>CCTV 18</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(28)">
+					<span>CCTV 28</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(33.4)">
+					<span>CCTV 33</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(48)">
+					<span>CCTV 48</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(70.6)">
+					<span>CCTV 70.6</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(80)">
+					<span>CCTV 80</span>
+				</a>
+				<a class="button is-primary" ng-click="raduis(150)">
+					<span>CCTV 150</span>
+				</a>
+				<hr>
+				<div ng-show="showRange">
+					<br>
+					raduis cctv {{idCctv}}
+					<form ng-submit="cctvSubmit()">
+						<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+						<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
+						<input type="radio"  value="30" ng-model="width"> 30
+						<input type="radio"  value="60" ng-model="width"> 60
+						<input type="radio"  value="90" ng-model="width"> 90
+					</form>
+				</div>
+		  </div>
+
+
+			<div ng-show="page==='Box'">
+			Box<br>
+			<a class="button is-primary" ng-click="raduis(18)">
+				<span>CCTV 18</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(28)">
+				<span>CCTV 28</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(33.4)">
+				<span>CCTV 33</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(48)">
+				<span>CCTV 48</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(70.6)">
+				<span>CCTV 70.6</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(80)">
+				<span>CCTV 80</span>
+			</a>
+			<a class="button is-primary" ng-click="raduis(150)">
+				<span>CCTV 150</span>
+			</a>
+			<hr>
+			<div ng-show="showRange">
+				<br>
+				raduis cctv {{idCctv}}
+				<form ng-submit="cctvSubmit()">
+					<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+					<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
+					<input type="radio"  value="30" ng-model="width"> 30
+					<input type="radio"  value="60" ng-model="width"> 60
+					<input type="radio"  value="90" ng-model="width"> 90
+				</form>
+			</div>
+		</div>
+
+		<div ng-show="page==='Dome'">
+		Dome<br>
+		<a class="button is-primary" ng-click="raduis(18)">
+			<span>CCTV 18</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(28)">
+			<span>CCTV 28</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(33.4)">
+			<span>CCTV 33</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(48)">
+			<span>CCTV 48</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(70.6)">
+			<span>CCTV 70.6</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(80)">
+			<span>CCTV 80</span>
+		</a>
+		<a class="button is-primary" ng-click="raduis(150)">
+			<span>CCTV 150</span>
+		</a>
+		<hr>
+		<div ng-show="showRange">
+			<br>
+			raduis cctv {{idCctv}}
+			<form ng-submit="cctvSubmit()">
+				<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
+				<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
+				<input type="radio"  value="30" ng-model="width"> 30
+				<input type="radio"  value="60" ng-model="width"> 60
+				<input type="radio"  value="90" ng-model="width"> 90
+			</form>
+		</div>
+	</div>
+
+		</div>
+		</div>
+
+		<!-- closepage 1 == activetitle -->
+
+
+		<div class="columns" ng-show="pagetitle === 'modal'">
+		  <div class="column is-one-quarter">
+		     <input type="range" min="0" max="100" ng-init="sizeLens = 1.4" ng-model="sizeLens"> {{sizeLens}}
+		  </div>
+		  <div class="column">
+		    <img src="./img/test.jpg" width="434" height="326" style="transform: scale({{sizeLens}});">
+		  </div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- <div class="columns">
+			  <div class="column">
+					<div ng-show="page==='Bullet'">
+					Bullet<br>
+					<a class="button is-primary" ng-click="raduis(18)">
+						<span>CCTV 18</span>
+					</a>
 					<a class="button is-primary" ng-click="raduis(28)">
 						<span>CCTV 28</span>
 					</a>
 					<a class="button is-primary" ng-click="raduis(33.4)">
 						<span>CCTV 33</span>
-					</a>
+					</a> <br>
 					<a class="button is-primary" ng-click="raduis(48)">
 						<span>CCTV 48</span>
 					</a>
@@ -92,16 +246,25 @@
 					</a>
 					<a class="button is-primary" ng-click="raduis(150)">
 						<span>CCTV 150</span>
-					</a> -->
+					</a>
+					<hr>
+				</div>
+			  </div>
+			  <div class="column" ng-show="showImage">
+					<figure class="image is-1240x768">
+						<img src="{{ data.b64 }}">
+					</figure>
+			  </div>
+			  <div class="column">
+			    Fourth column
+			  </div>
+		</div>
+	</div> -->
 
-		    </span>
-		  </div>
-		</nav>
-
-		<div class="columns">
+		<!-- <div class="columns">
 			<div class="column">
-					<div id="column_left">
-						type 1  จำนวน : {{countCctv}} <hr> <br>
+					<div id="column_left"> -->
+						<!-- type 1  จำนวน : {{countCctv}} <hr> <br>
 						<a class="button is-primary" ng-click="raduis(18)">
 			        <span>CCTV 18</span>
 			      </a>
@@ -123,25 +286,24 @@
 						<a class="button is-primary" ng-click="raduis(150)">
 							<span>CCTV 150</span>
 						</a>
-						<hr>
+						<hr> -->
 
-						<div ng-show="showRange">
+						<!-- <div ng-show="showRange">
 							<br>
 							raduis cctv {{idCctv}}
 							<form ng-submit="cctvSubmit()">
-								<!-- <input type="number" ng-model="range"> -->
 								<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
 								<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
 								<input type="radio"  value="30" ng-model="width"> 30
 							  <input type="radio"  value="60" ng-model="width"> 60
 							  <input type="radio"  value="90" ng-model="width"> 90
 							</form>
-						</div>
-					</div>
+						</div> -->
+					<!-- </div>
 		</div>
 		<div class="column">
 		</div>
-	</div>
+	</div> -->
 
 
 		<!-- <div id="header">MENU <br>
@@ -168,7 +330,7 @@
 			</div> -->
 
 
-			<div id="column_right">
+			<!-- <div id="column_right">
 				<div  id="{{item.id}}" ng-repeat="item in cameraStyle" ng-mouseup="moveObj(item.id)">
 					<p>{{ item.id }}</p>{{ init() }}
 				</div>
@@ -180,7 +342,7 @@
 				<div ng-show="showImage"><img src="{{ data.b64 }}"></div>
 		</div>
 		<div id="footer">FOOTER</div>
-		<div style='word-wrap:break-word'>
+		<div style='word-wrap:break-word'> -->
 
 
 
