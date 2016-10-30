@@ -42,9 +42,9 @@
 		      <a class="button is-primary" ng-click='click()'>
 		        <span>Import</span>
 		      </a>
-					<a class="button is-primary" ng-click="insert()">
+			<!-- 		<a class="button is-primary" ng-click="insert()">
 		        <span>WIFI</span>
-		      </a>
+		      </a> -->
 
 					<a class="button is-info" ng-click="Dome()">
 		        <span>Dome</span>
@@ -55,9 +55,9 @@
 					<a class="button is-warning" ng-click="Bullet()">
 						<span>Bullet</span>
 					</a>
-					<a class="button is-warning" ng-click="testLens()">
+				<!-- 	<a class="button is-warning" ng-click="testLens()">
 						<span>TestLen</span>
-					</a>
+					</a> -->
 		    </span>
 		  </div>
 		</nav>
@@ -67,12 +67,15 @@
 		  <div class="column is-three-quarters">
 				<div  style="display: inline-block"id="{{item1.id}}" ng-repeat="item1 in raduisStyle" ng-mouseup="moveObjraduisStyle(item1.id)" ng-init="">
 					{{ initraduisStyle() }}
-					<button ng-click="tranformcctv(item1.id)">{{ item1.id }}</button>
+					<div style="padding-top: 79%;padding-left: 24%;">
+						<button ng-click="tranformcctv(item1.id)">{{ item1.id }}</button>
 						<button ng-click="delcctv(item1.id)">del</button>
+					</div>
 				</div>
 		    <img src="{{ data.b64 }}" width="1024" height="768">
 		  </div>
 		  <div class="column">
+
 				<div ng-show="page==='Bullet'">
 				Bullet<br>
 				<a class="button is-primary" ng-click="raduis(18)">
@@ -103,12 +106,18 @@
 					<form ng-submit="cctvSubmit()">
 						<input type="range" min="0" max="360" ng-model="range"> {{ range }} <button ng-click="showRange=false" type="submit">X</button>
 						<input type="range" min="0" max="500" ng-model="width"> {{ width }} <br>
-						<input type="radio"  value="30" ng-model="width"> 30
+						<!-- <input type="radio"  value="30" ng-model="width"> 30
 						<input type="radio"  value="60" ng-model="width"> 60
-						<input type="radio"  value="90" ng-model="width"> 90
+						<input type="radio"  value="90" ng-model="width"> 90 -->
 					</form>
+					<form ng-submit="setplace(place)">
+						<input type="radio"  name="place" value="Corridor" ng-model="place" checked> Corridor
+						<input type="radio"  name="place" value="office" ng-model="place"> office
+						<input type="submit">
+					</form>
+					<img src="{{office}}">
 				</div>
-		  </div>
+		 	 </div>
 
 
 			<div ng-show="page==='Box'">
@@ -194,6 +203,7 @@
 		<div class="columns" ng-show="pagetitle === 'modal'">
 		  <div class="column is-one-quarter">
 		     <input type="range" min="0" max="100" ng-init="sizeLens = 1.4" ng-model="sizeLens"> {{sizeLens}}
+		     <button ng-click="pagetitle='active'"> go back</button>
 		  </div>
 		  <div class="column">
 		    <img src="./img/test.jpg" width="434" height="326" style="transform: scale({{sizeLens}});">

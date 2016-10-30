@@ -62,14 +62,15 @@ angular.module('todoApp', ['base64'])
     // ///////////////// CCTV ////////////////////////
     $scope.raduisStyle = []
     $scope.raduis = function (size) {
-      console.log('size', size)
       if (size === 18) {
         var cctvStyle18 = {
           id: Date.now(),
+          type: 'b18',
           css: {
             top: 100,
             left: 300,
             position: 'absolute',
+            'border-style': 'dashed',
             width: '50px',
             height: '150px',
             'background-image': `url('./img/18.png')`,
@@ -82,6 +83,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 28) {
         var cctvStyle28 = {
           id: Date.now(),
+          type: 'b28',
           css: {
             top: 100,
             left: 300,
@@ -98,6 +100,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 33.4) {
         var cctvStyle33 = {
           id: Date.now(),
+          type: 'b33.4',
           css: {
             top: 100,
             left: 300,
@@ -114,6 +117,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 48) {
         var cctvStyle48 = {
           id: Date.now(),
+          type: 'b48',
           css: {
             top: 100,
             left: 300,
@@ -130,6 +134,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 150) {
         var cctvStyle150 = {
           id: Date.now(),
+          type: 'b150',
           css: {
             top: 100,
             left: 300,
@@ -149,6 +154,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 70.6) {
         var cctvStyle70 = {
           id: Date.now(),
+          type: 'b70.6',
           css: {
             top: 100,
             left: 300,
@@ -165,6 +171,7 @@ angular.module('todoApp', ['base64'])
       } else if (size === 80) {
         var cctvStyle80 = {
           id: Date.now(),
+          type: 'b0',
           css: {
             top: 100,
             left: 300,
@@ -204,18 +211,43 @@ angular.module('todoApp', ['base64'])
     $scope.showRange = false
     $scope.idCctv = 0
     $scope.tranformcctv = function (id) {
-      console.log($scope.idCctv)
       var index = $scope.raduisStyle.findIndex(item => item.id === id)
-      console.log(index)
       $scope.idCctv = index
       $scope.showRange = true
       $scope.range = 0
+      $scope.changeImg(index)
+      $scope.changeSize(index)
+      // $scope.raduisStyle[index].css.width = $scope.width + 'px'
       // var index = $scope.raduisStyle.findIndex(item => item.id === id)
-    //   var rotate = $scope.raduisStyle[index].css.transform.replace(/(rotate\()(\d*)(deg\))/g, '$2')
-    //   var width = $scope.raduisStyle[index].css.width.replace(/(\d*)(px)/g, '$1')
-    //   $scope.range = rotate
-    //   $scope.width = width
+      // var width = $scope.raduisStyle[index].css.width.replace(/(\d*)(px)/g, '$1')
+      // var rotate = $scope.raduisStyle[$scope.idCctv].css.transform = 'rotate(' + $scope.range + 'deg)'
+      // console.log(rotate)
+      // $scope.range = rotate
+      // $scope.width = width
       // $scope.idCctv = index
+    }
+    $scope.changeSize = function (index) {
+      // var width = $scope.raduisStyle[index].css.width
+      // var height = $scope.raduisStyle[index].css.height
+      // var arrwidth = width.split('')
+      // var arrheight = height.split('')
+      // arrwidth.pop()
+      // arrwidth.pop()
+      // arrheight.pop()
+      // arrheight.pop()
+      // arrwidth.join()
+      // arrheight.join().split(',')
+      // console.log(arrwidth, arrheight)
+    }
+    $scope.changeImg = function (id) {
+      console.log($scope.raduisStyle[id])
+      if ($scope.raduisStyle[id].type === 'b150') $scope.office = './img/w2.8.png'
+      if ($scope.raduisStyle[id].type === 'b18') $scope.office = './img/w16.png'
+      if ($scope.raduisStyle[id].type === 'b80') $scope.office = './img/w3.6.png'
+      if ($scope.raduisStyle[id].type === 'b70.6') $scope.office = './img/w4.png'
+      if ($scope.raduisStyle[id].type === 'b48') $scope.office = './img/w6.png'
+      if ($scope.raduisStyle[id].type === 'b33.4') $scope.office = './img/w8.png'
+      if ($scope.raduisStyle[id].type === 'b28') $scope.office = './img/w12.png'
     }
     $scope.delcctv = function (id) {
       var index = $scope.raduisStyle.findIndex(item => item.id === id)
@@ -227,6 +259,7 @@ angular.module('todoApp', ['base64'])
       console.log('Bullet')
       $scope.page = 'Bullet'
       $scope.raduis(150)
+      $scope.office = './img/w2.8.png'
     }
     $scope.Box = function () {
       $scope.page = 'Box'
@@ -236,5 +269,14 @@ angular.module('todoApp', ['base64'])
     }
     $scope.testLens = function () {
       $scope.pagetitle = 'modal'
+    }
+    $scope.setplace = function (place) {
+      console.log(place)
+      if (place === 'Corridor') {
+        // $scope.corridor = './img/w2.8.png'
+      }
+      else if (place === 'office') {
+        $scope.office = './img/w2.8.png'
+      }
     }
   })
