@@ -61,8 +61,9 @@ angular.module('todoApp', ['base64'])
     }
     // ///////////////// CCTV ////////////////////////
     $scope.raduisStyle = []
-    $scope.raduis = function (size) {
-      if (size === 18) {
+    $scope.raduis = function (size, id) {
+      console.log(id)
+      if (size === 18 && id === 'Bu') {
         var cctvStyle18 = {
           id: Date.now(),
           type: 'b18',
@@ -74,13 +75,14 @@ angular.module('todoApp', ['base64'])
             width: '50px',
             height: '150px',
             'background-image': `url('./img/18.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle18)
-      } else if (size === 28) {
+      } else if (size === 28 && id === 'Bu') {
         var cctvStyle28 = {
           id: Date.now(),
           type: 'b28',
@@ -91,13 +93,14 @@ angular.module('todoApp', ['base64'])
             width: '67px',
             height: '150px',
             'background-image': `url('./img/28.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle28)
-      } else if (size === 33.4) {
+      } else if (size === 33.4 && id === 'Bu') {
         var cctvStyle33 = {
           id: Date.now(),
           type: 'b33.4',
@@ -108,13 +111,14 @@ angular.module('todoApp', ['base64'])
             width: '80px',
             height: '150px',
             'background-image': `url('./img/33.4.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle33)
-      } else if (size === 48) {
+      } else if (size === 48 && id === 'Bu') {
         var cctvStyle48 = {
           id: Date.now(),
           type: 'b48',
@@ -125,13 +129,14 @@ angular.module('todoApp', ['base64'])
             width: '102px',
             height: '150px',
             'background-image': `url('./img/48.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle48)
-      } else if (size === 150) {
+      } else if (size === 150 && id === 'Bu') {
         var cctvStyle150 = {
           id: Date.now(),
           type: 'b150',
@@ -145,13 +150,14 @@ angular.module('todoApp', ['base64'])
             width: '207px',
             height: '150px',
             'background-image': `url('./img/150.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle150)
-      } else if (size === 70.6) {
+      } else if (size === 70.6 && id === 'Bu') {
         var cctvStyle70 = {
           id: Date.now(),
           type: 'b70.6',
@@ -162,13 +168,14 @@ angular.module('todoApp', ['base64'])
             width: '147px',
             height: '150px',
             'background-image': `url('./img/70.6.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle70)
-      } else if (size === 80) {
+      } else if (size === 80 && id === 'Bu') {
         var cctvStyle80 = {
           id: Date.now(),
           type: 'b0',
@@ -179,13 +186,279 @@ angular.module('todoApp', ['base64'])
             width: '166px',
             height: '150px',
             'background-image': `url('./img/80.png')`,
-            'background-repeat': 'repeat-y, repeat-x',
+            'background-repeat': 'no-repeat',
             'transform': 'rotate(0deg)',
-            opacity: '0.6'
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
           }
         }
         $scope.raduisStyle.push(cctvStyle80)
       }
+      //////////////////BOX/////////////////
+      if (size === 18 && id === 'B') {
+        var cctvStyle18 = {
+          id: Date.now(),
+          type: 'b18',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            'border-style': 'dashed',
+            width: '50px',
+            height: '150px',
+            'background-image': `url('./img/box18.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle18)
+      } else if (size === 28 && id === 'B') {
+        var cctvStyle28 = {
+          id: Date.now(),
+          type: 'b28',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '67px',
+            height: '150px',
+            'background-image': `url('./img/box28.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle28)
+      } else if (size === 33.4 && id === 'B') {
+        var cctvStyle33 = {
+          id: Date.now(),
+          type: 'b33.4',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '80px',
+            height: '150px',
+            'background-image': `url('./img/box33.4.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle33)
+      } else if (size === 48 && id === 'B') {
+        var cctvStyle48 = {
+          id: Date.now(),
+          type: 'b48',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '102px',
+            height: '150px',
+            'background-image': `url('./img/box48.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle48)
+      } else if (size === 150 && id === 'B') {
+        var cctvStyle150 = {
+          id: Date.now(),
+          type: 'b150',
+          css: {
+            top: 100,
+            left: 300,
+            right: 0,
+            bottom: 0,
+            'border-style': 'dashed',
+            position: 'absolute',
+            width: '207px',
+            height: '150px',
+            'background-image': `url('./img/box150.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle150)
+      } else if (size === 70.6 && id === 'B') {
+        var cctvStyle70 = {
+          id: Date.now(),
+          type: 'b70.6',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '147px',
+            height: '150px',
+            'background-image': `url('./img/box70.6.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle70)
+      } else if (size === 80 && id === 'B') {
+        var cctvStyle80 = {
+          id: Date.now(),
+          type: 'b0',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '166px',
+            height: '150px',
+            'background-image': `url('./img/box80.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle80)
+      }
+      /////////////// Dome ////////////////////////
+      if (size === 18 && id === 'D') {
+        var cctvStyle18 = {
+          id: Date.now(),
+          type: 'b18',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            'border-style': 'dashed',
+            width: '50px',
+            height: '150px',
+            'background-image': `url('./img/d18.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle18)
+      } else if (size === 28 && id === 'D') {
+        var cctvStyle28 = {
+          id: Date.now(),
+          type: 'b28',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '67px',
+            height: '150px',
+            'background-image': `url('./img/d28.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle28)
+      } else if (size === 33.4 && id === 'D') {
+        var cctvStyle33 = {
+          id: Date.now(),
+          type: 'b33.4',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '80px',
+            height: '150px',
+            'background-image': `url('./img/d33.4.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle33)
+      } else if (size === 48 && id === 'D') {
+        var cctvStyle48 = {
+          id: Date.now(),
+          type: 'b48',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '102px',
+            height: '150px',
+            'background-image': `url('./img/d48.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle48)
+      } else if (size === 150 && id === 'D') {
+        var cctvStyle150 = {
+          id: Date.now(),
+          type: 'b150',
+          css: {
+            top: 100,
+            left: 300,
+            right: 0,
+            bottom: 0,
+            'border-style': 'dashed',
+            position: 'absolute',
+            width: '207px',
+            height: '150px',
+            'background-image': `url('./img/d150.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle150)
+      } else if (size === 70.6 && id === 'D') {
+        var cctvStyle70 = {
+          id: Date.now(),
+          type: 'b70.6',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '147px',
+            height: '150px',
+            'background-image': `url('./img/d70.6.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle70)
+      } else if (size === 80 && id === 'D') {
+        var cctvStyle80 = {
+          id: Date.now(),
+          type: 'b0',
+          css: {
+            top: 100,
+            left: 300,
+            position: 'absolute',
+            width: '166px',
+            height: '150px',
+            'background-image': `url('./img/d80.png')`,
+            'background-repeat': 'no-repeat',
+            'transform': 'rotate(0deg)',
+            opacity: '0.6',
+            'transform-origin': '50% 100%'
+          }
+        }
+        $scope.raduisStyle.push(cctvStyle80)
+      }
+
     }
 
     $scope.moveObjraduisStyle = function (id) {
@@ -258,14 +531,16 @@ angular.module('todoApp', ['base64'])
     $scope.Bullet = function () {
       console.log('Bullet')
       $scope.page = 'Bullet'
-      $scope.raduis(150)
+      $scope.raduis(150, 'Bu')
       $scope.office = './img/w2.8.png'
     }
     $scope.Box = function () {
       $scope.page = 'Box'
+      $scope.raduis(150, 'B')
     }
     $scope.Dome = function () {
       $scope.page = 'Dome'
+      $scope.raduis(150, 'D')
     }
     $scope.testLens = function () {
       $scope.pagetitle = 'modal'
